@@ -135,23 +135,24 @@ class home_model extends CI_Model {
 		foreach($this->cart->contents() AS $key =>  $v){
 
 			$total = $v["price"] * $v["qty"];
-		
+
 			$this->db->set('id_venta',$last_id);
 			$this->db->set('id_producto',$v["id"]);
 			$this->db->set('cantidad',$v["qty"]);
 			$this->db->set('sub_total',$total);
 			$this->db->insert('detalle_venta');
 
-			$id_produc = $v['id'];
-			$this->db->where('id_producto', $id_produc);
 			$this->db->select('stock');
-			$stock = $this->db->get('producto');
+			$this->db->where('id_producto', $v['id']);
+			$stockActual = $this->db->get('producto');
+			$k = $stockActual->row();
 
-			$resta = $stock - $v['qty'];
+				$this->db->where('id_producto', $v["id"]);
+				$this->db->set('stock',$k->stock - $v["qty"]);
+				$this->db->update('producto');
+			
 
-			$this->db->set('stock',$resta);
-			$this->db->where('id_producto', $id_produc);
-			$this->db->update('producto');
+
 		}
 
 		$this->cart->destroy();

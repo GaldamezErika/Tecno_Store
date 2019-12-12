@@ -16,6 +16,7 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('props/alertifyjs/css/alertify.min.css') ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('props/alertifyjs/css/themes/default.min.css') ?>">
+	<script src="<?php echo base_url('props/js/bootstrap.js') ?>"></script>
 
 	<!-- Slick -->
 	<link type="text/css" rel="stylesheet" href="<?= base_url('props/css/slick.css') ?>"/>
@@ -35,9 +36,9 @@
 	<script src="<?= base_url('props/js/jquery.min.js') ?>"></script>
 	<script src="<?= base_url('props/js/datatables.min.js') ?>"></script>
 
-	<script src="<?php echo base_url('props/bootstrap/js/bootstrap.js') ?>"></script>
+	
 	<script src="<?php echo base_url('props/alertifyjs/alertify.min.js') ?>"></script>
-	<script src="<?php echo base_url('props/bootstrap/js/jquery.mask.min.js');?>"></script>	
+	<script src="<?php echo base_url('props/js/jquery.mask.min.js');?>"></script>	
 
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

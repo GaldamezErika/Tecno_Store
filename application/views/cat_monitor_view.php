@@ -26,7 +26,7 @@
 							<div class="col-md-3 col-xs-6" id="productos">
 								<div class="product">
 									<div class="product-img">
-										<img src="props/img/<?= $prod->imagen ?>" alt="">
+										<img src="<?= base_url('props/img/'.$prod->imagen) ?>" alt="">
 										<div class="product-label">
 											<span class="new">Nuevo</span>
 										</div>
@@ -40,6 +40,7 @@
 									</div>
 									<div class="add-to-cart">	
 										<a href="<?php echo base_url('home_controller/get_datos/'.$prod->id_producto) ?>"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Ver Detalles</button></a>
+
 									</div>
 								</div>
 							</div>

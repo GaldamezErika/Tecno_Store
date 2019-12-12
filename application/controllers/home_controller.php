@@ -111,7 +111,7 @@ class home_controller extends CI_Controller {
     // Agregamos al carrito los productos con la libreria cart
 	public function carrito(){
 
-		$data  =array(
+		$data  = array(
 			'id' => $this->input->post("id"),
 			'qty' => $this->input->post("cantidad"),
 			'price' => $this->input->post("precio"),

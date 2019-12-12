@@ -302,7 +302,6 @@
 							<a data-toggle="modal" data-target="#carrito">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Carrito</span>
-								<div class="qty">3</div>
 							</a>
 						</div>
 						<!-- /Cart -->
@@ -422,7 +421,7 @@
 							<a data-toggle="modal" data-target="#carrito">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Carrito</span>
-								<div class="qty">3</div>
+								
 							</a>
 						</div>
 						<!-- /Cart -->
