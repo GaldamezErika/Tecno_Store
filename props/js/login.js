@@ -5,14 +5,14 @@ $(document).ready(function(){
         });
  
 
-        $("#clave").keyup(function () {
+        $("#clave21").keyup(function () {
             var value = $(this).val();
             validar_clave11(value);
         }).keyup();  
 
 
 
-        $("#clave").focus(function() {
+        $("#clave21").focus(function() {
           $('#info11').show();
       });
        
@@ -79,7 +79,7 @@ $(document).ready(function(){
     function validarLogin(){
 
        var usuario21 = document.getElementById('usuario21').value;
-       var clave = document.getElementById('clave').value;
+       var clave21 = document.getElementById('clave21').value;
 
     //Validar campo obligatorio
     if(usuario21.length == 0){ 
@@ -91,13 +91,13 @@ $(document).ready(function(){
         document.getElementById("usuario21").style.boxShadow = '0 0 15px green';
     } 
 
-    if(clave.length == 0){ 
-        document.getElementById("clave").style.boxShadow = '0 0 15px red'; 
-        document.getElementById("clave").placeholder = "Este campo es obligatorio";
+    if(clave21.length == 0){ 
+        document.getElementById("clave21").style.boxShadow = '0 0 15px red'; 
+        document.getElementById("clave21").placeholder = "Este campo es obligatorio";
         
         return false;
     }else{
-        document.getElementById("clave").style.boxShadow = '0 0 15px green';
+        document.getElementById("clave21").style.boxShadow = '0 0 15px green';
     } 
 
     return true;
@@ -107,12 +107,12 @@ $(document).ready(function(){
 }
 
 function mostrarPassword6(){
-    var clave = document.getElementById("clave");
-    if(clave.type == "password"){
-        clave.type = "text";
+    var clave21 = document.getElementById("clave21");
+    if(clave21.type == "password"){
+        clave21.type = "text";
         $('.icon1').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
     }else{
-        clave.type = "password";
+        clave21.type = "password";
         $('.icon1').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
     }
 }

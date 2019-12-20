@@ -494,7 +494,7 @@
 						<div class="input-group">
 							<span class="input-group-text" >Contraseña Actual</span>
 							<input type="hidden" name="usuario" value="<?= $this->session->userdata('id') ?>">
-							<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="oldClave" id="passold" placeholder="Ingrese contraseña actual"><button id="show_password" class="btn btn-info" type="button" onclick="mostrarPassword1()"> <span class="fa fa-eye-slash icon"></span> </button>
+							<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="oldClave" id="" placeholder="Ingrese contraseña actual"><button id="show_password" class="btn btn-info" type="button" onclick="mostrarPassword1()"> <span class="fa fa-eye-slash icon"></span> </button>
 						</div>
 						<div class="col" id="letras">
 							<div id="info1">
@@ -575,15 +575,15 @@
 
 					<div class="form-group mb-5 mt-3 mx-4">
 						<label for="exampleInputEmail1" style="font-family: Bahnschrift">Usuario</label>
-						<input type="text" name="usuario" id="usuario21" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite su usuario">
+						<input type="text" name="usuario" id="usuario21" class="form-control" aria-describedby="emailHelp" placeholder="Digite su usuario">
 
 					</div>
 					<div class="form-group mb-5 mx-4">
 						<label for="exampleInputPassword1" style="font-family: Bahnschrift">Contraseña</label>
-						<input type="password" name="clave" id="clave" class="form-control" id="exampleInputPassword1" placeholder="Digite la contraseña">
+						<input type="password" name="clave" id="clave21" class="form-control"   placeholder="Digite la contraseña">
 						<button id="show_password" class="btn btn-info" type="button" onclick="mostrarPassword6()"> <span class="fa fa-eye-slash icon"></span> </button>
 					</div>
-					<div class="col" id="letras">
+					<!-- <div class="col" id="letras">
 							<div id="info11">
 								<ul>
 									<li id="mayuscula4" class="invalid">Al menos <strong>una mayuscula</strong></li>
@@ -592,185 +592,189 @@
 									<li id="length4" class="invalid">Por lo menos <strong>8 caracteres</strong></li>
 								</ul>
 							</div>
-						</div>
-					<div class="text-center">
-						<button type="submit" name="" class="btn btn-primary" data-target="#exampleModalCenter">Ingresar</button></div>
-					</form>
+						</div> -->
+						<div class="text-center">
+							<button type="submit" name="" class="btn btn-primary" data-target="#exampleModalCenter">Ingresar</button></div>
+						</form>
 
 
-					<!-- fin formulario -->
-				</div>
-				<div class="modal-footer mx-4">
-					<div class="text-center">
-						<a href="<?php echo base_url('registrar_controller/index') ?>" class="text-muted">Registrarme</a>
+						<!-- fin formulario -->
 					</div>
-					<br>
-					<div class="text-center">
-						<a href="<?php echo base_url('recuperacion_controller/index') ?>" class="text-muted">¿Olvidó la contraseña?</a>
+					<div class="modal-footer mx-4">
+						<div class="text-center">
+							<a href="<?php echo base_url('registrar_controller/index') ?>" class="text-muted">Registrarme</a>
+						</div>
+						<br>
+						<div class="text-center">
+							<a href="<?php echo base_url('recuperacion_controller/index') ?>" class="text-muted">¿Olvidó la contraseña?</a>
+						</div>
 					</div>
 				</div>
 			</div>
+			<?php if (isset($mensaje)){ echo $mensaje; } ?>
 		</div>
-		<?php if (isset($mensaje)){ echo $mensaje; } ?>
-	</div>
-	<?php $this->load->view('utils/alertsLogin') ?>
+		<?php $this->load->view('utils/alertsLogin') ?>
 
 
 
-	<!-- Modal del carrito de compra -->
-	<div class="modal fade bd-example-modal-lg" id="carrito" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-						<i class="fa fa-close"></i>
-					</button>
-					<h3>Tu compra</h3>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-9">
-							<br>
-							<?php if (!$this->session->userdata('rol')) {
+		<!-- Modal del carrito de compra -->
+		<div class="modal fade bd-example-modal-lg" id="carrito" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+							<i class="fa fa-close"></i>
+						</button>
+						<h3>Tu compra</h3>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-9">
+								<br>
+								<?php if (!$this->session->userdata('rol')) {
 
-								?>
-								<span class="badge badge-pill badge-danger"><i class="fa fa-warning (alias)">&nbsp</i>Debe iniciar sesion para poder registrar la compra</span>
-							<?php } ?>
-							<div class="table-responsive">
-								<table class="table table-striped table-hover table-sm">
-									<tr>
-										<th width="40%">Descripción</th>
-										<th width="10%">Cantidad</th>
-										<th width="15%">Precio</th>
-										<th width="15%">Total</th>
-										<th width="5%">Quitar</th>
-									</tr>
+									?>
+									<span class="badge badge-pill badge-danger"><i class="fa fa-warning (alias)">&nbsp</i>Debe iniciar sesion para poder registrar la compra</span>
+								<?php } ?>
+								<div class="table-responsive">
+									<table class="table table-striped table-hover table-sm">
+										<tr>
+											<th width="40%">Descripción</th>
+											<th width="10%">Cantidad</th>
+											<th width="15%">Precio</th>
+											<th width="15%">Total</th>
+											<th width="5%">Quitar</th>
+										</tr>
 
-									<?php
+										<?php
 
-									if(isset($_GET['quitar'])){
-										foreach ($this->cart->contents() AS $key => $value){
-											if($value['rowid'] == $_GET['quitar']){
-												$borrar = array(
-													'rowid' => $_GET['quitar'],
-													'qty'   => 0
-												);
-												$this->cart->update($borrar);
-												echo '<script>  
+										if(isset($_GET['quitar'])){
+											foreach ($this->cart->contents() AS $key => $value){
+												if($value['rowid'] == $_GET['quitar']){
+													$borrar = array(
+														'rowid' => $_GET['quitar'],
+														'qty'   => 0
+													);
+													$this->cart->update($borrar);
+													echo '<script>  
 
 
-												Swal.fire({
-													title: "Retirado del carrito!",
-													text: "El producto se quitó del carrito",
-													icon: "Eliminado",
-													showCancelButton: false,
-													confirmButtonColor: "#3085d6",
-													confirmButtonText: "Aceptar"
-													}).then((result) => {
-														if (result.value) {
-															window.location.href = "home_controller";
+													Swal.fire({
+														title: "Retirado del carrito!",
+														text: "El producto se quitó del carrito",
+														icon: "Eliminado",
+														showCancelButton: false,
+														confirmButtonColor: "#3085d6",
+														confirmButtonText: "Aceptar"
+														}).then((result) => {
+															if (result.value) {
+																window.location.href = "home_controller";
+															}
+															})
+
+
+															</script>';
 														}
-														})
-
-
-														</script>';
 													}
-												}
-											}  
+												}  
 
 
-											if(!empty($this->cart->contents())){
-												$total = 0;
-												foreach ($this->cart->contents() AS $key => $value){?>
+												if(!empty($this->cart->contents())){
+													$total = 0;
+													foreach ($this->cart->contents() AS $key => $value){?>
 
-													<tr>
-														<td><?= $value['name'];?></td>
-														<td><?= $value["qty"];?></td>
-														<td>$<?= $this->cart->format_number($value["price"]);?></td>
-														<td>$<?php echo number_format($value["qty"] * $value["price"],2);?></td>
-														<td><a class="btn btn-danger" href="?quitar=<?= $value["rowid"];?>">Quitar</a></td>
+														<tr>
+															<td><?= $value['name'];?></td>
+															<td><?= $value["qty"];?></td>
+															<td>$<?= $this->cart->format_number($value["price"]);?></td>
+															<td>$<?php echo number_format($value["qty"] * $value["price"],2);?></td>
+															<td><a class="btn btn-danger" href="?quitar=<?= $value["rowid"];?>">Quitar</a></td>
+														</tr>
+														<?php
+														$data = array('total' => $total =$this->cart->format_number($this->cart->total())); 
+													}
+													$this->session->set_userdata($data);
+													?>
+													<tr style="color: black">
+														<td  colspan="3" align="right"><strong>Sub Total</strong></td>
+														<td>$<strong style="color:green;"><?=$this->cart->format_number($this->cart->total());?></strong></td>
+														<td></td>
+													</tr>
+
+													<form action="<?= base_url('home_controller/comprar') ?>" method="POST" onsubmit="return validar()">
+														<?php 
+
+														if ($this->session->userdata('rol')) {
+
+															?>
+															<tr>
+																<td>
+																	<select name="tipo_pago" id="tipo_pago" class="custom-select">
+																		<option value="">-- Seleccione un metodo de pago--</option>
+																		<?php foreach($tipo_pago as $tp){ ?>
+																			<option value="<?= $tp->id_tipo_pago ?>"><?= $tp->nombre_tipo_pago ?></option>
+																		<?php } ?>
+
+																	</select>
+																</td>
+
+																<td> 
+																	<input type="submit" name="carrito" value="Comprar" class="btn btn-primary">
+																</td>
+																<div class="alert alert-danger alert-dismissible" role="alert">
+																	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+																	<strong>Aviso!</strong> Sr@. <?php echo $this->session->userdata('nombre') ?> <?php echo $this->session->userdata('apellido') ?> tiene un lapso de 3 dias para retirar su producto.
+																</div>
+															</tr>
+														<?php }else{ ?>
+
+
+
+														<?php } ?>
+
+													</form>
+
+													<?php
+
+												}else{
+
+													?>
+													<tr style="color: white">
+														<td colspan="4" style="color: red" align="center"><strong>No hay Producto Agregado!</strong></td>
 													</tr>
 													<?php
-													$data = array('total' => $total =$this->cart->format_number($this->cart->total())); 
+
 												}
-												$this->session->set_userdata($data);
-												?>
-												<tr style="color: black">
-													<td  colspan="3" align="right"><strong>Sub Total</strong></td>
-													<td>$<strong style="color:green;"><?=$this->cart->format_number($this->cart->total());?></strong></td>
-													<td></td>
-												</tr>
-
-												<form action="<?= base_url('home_controller/comprar') ?>" method="POST" onsubmit="return validar()">
-													<?php 
-
-													if ($this->session->userdata('rol')) {
-
-														?>
-														<tr>
-															<td>
-																<select name="tipo_pago" id="tipo_pago" class="custom-select">
-																	<option value="">-- Seleccione un metodo de pago--</option>
-																	<?php foreach($tipo_pago as $tp){ ?>
-																		<option value="<?= $tp->id_tipo_pago ?>"><?= $tp->nombre_tipo_pago ?></option>
-																	<?php } ?>
-
-																</select>
-															</td>
-
-															<td> 
-																<input type="submit" name="carrito" value="Comprar" class="btn btn-primary">
-															</td>
-														</tr>
-													<?php }else{ ?>
-
-														
-
-													<?php } ?>
-
-												</form>
-
-												<?php
-
-											}else{
 
 												?>
-												<tr style="color: white">
-													<td colspan="4" style="color: red" align="center"><strong>No hay Producto Agregado!</strong></td>
-												</tr>
-												<?php
+											</table>
 
-											}
-
-											?>
-										</table>
-
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<script>
+				<script>
 
-				function validar(){
+					function validar(){
 
-					var tipo_pago = document.getElementById('tipo_pago').selectedIndex;
+						var tipo_pago = document.getElementById('tipo_pago').selectedIndex;
 
-					if (tipo_pago == 0) {
+						if (tipo_pago == 0) {
 
-						document.getElementById("tipo_pago").style.boxShadow = "0 0 15px red";
-						document.getElementById("tipo_pago").placeholder = "Seleccione tipo de pago";
+							document.getElementById("tipo_pago").style.boxShadow = "0 0 15px red";
+							document.getElementById("tipo_pago").placeholder = "Seleccione tipo de pago";
 
-						return false;
-					}else{
+							return false;
+						}else{
 
-						document.getElementById("tipo_pago").style.boxShadow = "0 0 15px green";
+							document.getElementById("tipo_pago").style.boxShadow = "0 0 15px green";
+						}
+
+						return true;
 					}
 
-					return true;
-				}
-
-			</script>
+				</script>

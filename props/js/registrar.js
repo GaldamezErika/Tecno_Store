@@ -247,3 +247,19 @@ $(function () {
 	var tel = new Inputmask("9999-9999", { "clearIncomplete": true });
 	tel.mask(selector2);
 });
+
+/*$(document).ready(function(){
+    $('#telefono2').keyup(function(event){
+        if(event.which >=10 && event.which <=12){
+            event.preventDefault();
+        }
+    $(this).val(function(index, value){
+        return value
+        .replace(/^(0*)/,"")
+        .replace(/\D/g, "")
+    });
+
+    $('#telefono2').mask('0000-0000', {placeholder: '0000-0000'});
+});
+
+});*/

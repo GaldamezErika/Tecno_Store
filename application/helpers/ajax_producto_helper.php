@@ -423,7 +423,7 @@ function validaciones($id){
 				}
 
 				//Validacion file peso
-				var limite_kb= 200;
+				var limite_kb= 2000;
 				if($("#file")[0].files[0].size >=limite_kb * 1024){
 					var msj='';
 					msj+='<div class="alert alert-danger alert-dismissible fade show" role="alert">'+'Archivo sobrepasa los <strong>2 MB</strong>!'+

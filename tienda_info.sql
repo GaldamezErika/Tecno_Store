@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-12-2019 a las 15:49:04
+-- Tiempo de generación: 20-12-2019 a las 18:44:35
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -302,15 +302,11 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_cliente`, `nombre`, `apellido`, `correo`, `telefono`, `direccion`, `usuario`, `clave`, `id_sexo`, `id_departamento`, `id_rol`) VALUES
-(1, 'Michael', 'Jackson', 'mjackson_1@hotmail.com', '7945-6213', 'pasaje san cristobal #2546', 'mike', '202cb962ac59075b964b07152d234b70', 1, 1, 3),
-(4, 'Marcos', 'Polo', 'marcop34@hotmail.com', '7345-2645', 'Pasaje Solis #34', 'polo', '202cb962ac59075b964b07152d234b70', 1, 8, 3),
-(5, 'Yamileth', 'Chavarria', 'yamy503@gmail.com', '7823-4456', 'Residecia Via Olimpica', 'yami', '202cb962ac59075b964b07152d234b70', 2, 4, 3),
-(6, 'Javier', 'Henriquez', 'javier@gmail.com', '7121-0006', 'por ahi', 'javier', '202cb962ac59075b964b07152d234b70', 1, 1, 3),
-(11, 'Santiago', 'Hernandez', 'santi@gmail.com', '4514-5124', 'Mejicanos', 'santi', '202cb962ac59075b964b07152d234b70', 1, 1, 3),
+(1, 'Michael', 'Jackson', 'mjackson_1@hotmail.com', '7945-6213', 'pasaje san cristobal #2546', 'mike', 'f43b530bdce2a6fc55d7c0372d0fc5d0', 1, 1, 3),
+(5, 'Yamileth', 'Chavarria', 'yamy503@gmail.com', '7823-4456', 'Residecia Via Olimpica', 'yami', '7cf59a34c69c2d85a07dbde0689db0be', 2, 4, 3),
+(6, 'Javier', 'Henriquez', 'javier@gmail.com', '7121-0006', 'por ahi', 'javier', '0a88df971c6a632af7d1dbc5fe4ec932', 1, 1, 3),
 (12, 'Erika', 'Galdamez', 'gabrielahello96@gmail.com', '2323-3456', 'Apopa', 'erika', '18fc943039d22650081597024ed6b7b4', 2, 1, 1),
-(13, 'Luis', 'Gomez', 'luis@gmail.com', '2323-3445', 'San Salvador', 'luis', '202cb962ac59075b964b07152d234b70', 1, 2, 2),
-(28, 'fdxddf', 'fddd', 'fgfg@asd.com', '4544-5454', 'fgfgfgfg', 'dsdsd', 'c47ad997e0b9a94cae27f37a50ee3500', 1, 4, 3),
-(30, 'dfdf', 'ghhghgh', 'ghgh@vcvcv.com', '4122-1222', 'jhjh', 'dffdfdf', '1c9ab842c5d781aff0c2df8c0cdfc844', 1, 2, 3);
+(13, 'Luis', 'Gomez', 'luis@gmail.com', '2323-3445', 'San Salvador', 'luis', '0b8ed8824647fd013a99a734ca44393f', 1, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -332,7 +328,7 @@ CREATE TABLE `venta` (
 --
 
 INSERT INTO `venta` (`id_venta`, `n_factura`, `fecha`, `id_estado`, `id_cliente`, `id_tipo_pago`) VALUES
-(7, 4303, '2019-12-19', 3, 5, 2);
+(7, 4303, '2019-12-16', 3, 5, 2);
 
 --
 -- Índices para tablas volcadas
@@ -455,7 +451,7 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
@@ -485,13 +481,13 @@ ALTER TABLE `tipo_pago`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas

@@ -73,8 +73,18 @@
 										</thead>
 										<tbody>
 											<?php if (count($ventas)>0) {?>
-												<?php foreach($ventas as $v){ ?>
-													<tr>
+												<?php foreach($ventas as $v){ 
+													$fecha_hoy = strtotime(date('Y-m-d'));
+													$fechaPedido = strtotime($v->fecha);
+													$resta = $fecha_hoy - $fechaPedido;
+
+													if ($resta > 259200) {
+														$plazoVencido = "style= 'background-color: tomato;'"; 
+													}else{
+														$plazoVencido = "";
+													}
+													?>
+													<tr <?php echo $plazoVencido ?>>
 														<td><?= $v->n_factura ?></td>
 														<td><?= $v->nombre .' '. $v->apellido ?></td>
 														<td><?= $v->fecha ?></td>

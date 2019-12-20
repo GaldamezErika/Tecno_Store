@@ -198,11 +198,18 @@ if($rol == 0){
 
 
 $(document).ready(function(){
+    $('#telefono').keyup(function(event){
+        if(event.which >=10 && event.which <=12){
+            event.preventDefault();
+        }
+    $(this).val(function(index, value){
+        return value
+        .replace(/^(0*)/,"")
+        .replace(/\D/g, "")
+    });
 
-    //FORMATO DE MASCARAS
-    //$("#correo").mask('email');
     $('#telefono').mask('0000-0000', {placeholder: '0000-0000'});
-    // $("#correo").mask({'autoUnmask': true});
+});
 
 });
 
