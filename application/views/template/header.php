@@ -38,7 +38,12 @@
 
 	
 	<script src="<?php echo base_url('props/alertifyjs/alertify.min.js') ?>"></script>
+	<script src="<?php echo base_url('props/js/inputmask.min.js');?>"></script>
 	<script src="<?php echo base_url('props/js/jquery.mask.min.js');?>"></script>	
+
+
+	<script src="<?php echo base_url('props/js/usuario.js') ?>"></script>
+	<script src="<?php echo base_url('props/js/usuario2.js') ?>"></script>  
 
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -49,4 +54,5 @@
 		<![endif]-->
 
 	</head>
+
 

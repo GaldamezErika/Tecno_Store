@@ -17,19 +17,20 @@ class login_model extends CI_Model {
 
 	}
 
-	/*public function cambiar_clave($datos){
+	public function cambiarcontra($datos){
+
 		$this->db->set('clave',$datos['newClave']);
+		$this->db->where('id_cliente',$datos['usuario']);
 		$this->db->where('clave',$datos['oldClave']);
 		$this->db->update('usuario');
 
 		if ($this->db->affected_rows() > 0) {
-			return "success";
+			return 'success';
 		}else{
-
-			return "Error";
+			return 'Error';
 		}
-	}*/
-
+		
+	}
 
 }
 

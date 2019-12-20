@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-12-2019 a las 15:19:21
+-- Tiempo de generación: 20-12-2019 a las 15:49:04
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -50,6 +50,37 @@ INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `departamento`
+--
+
+CREATE TABLE `departamento` (
+  `id_departamento` int(11) NOT NULL,
+  `nombre_departamento` varchar(20) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `departamento`
+--
+
+INSERT INTO `departamento` (`id_departamento`, `nombre_departamento`) VALUES
+(1, 'Ahuachapán'),
+(2, 'Cabañas'),
+(3, 'Chalatenango'),
+(4, 'Cuscatlán'),
+(5, 'La Libertad'),
+(6, 'La Paz'),
+(7, 'La Unión'),
+(8, 'Morazán'),
+(9, 'San Miguel'),
+(10, 'San Salvador'),
+(11, 'San Vicente'),
+(12, 'Santa Ana'),
+(13, 'Sonsonate'),
+(14, 'Usulután');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `detalle_venta`
 --
 
@@ -65,8 +96,8 @@ CREATE TABLE `detalle_venta` (
 --
 
 INSERT INTO `detalle_venta` (`id_venta`, `id_producto`, `cantidad`, `sub_total`) VALUES
-(2, 66, 1, 50),
-(2, 70, 1, 32);
+(7, 22, 1, 1200.99),
+(7, 10, 2, 60);
 
 -- --------------------------------------------------------
 
@@ -108,33 +139,12 @@ INSERT INTO `marca` (`id_marca`, `nombre_marca`) VALUES
 (11, 'Dell'),
 (12, 'HP'),
 (13, 'Samsung'),
-(14, 'LG');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pais`
---
-
-CREATE TABLE `pais` (
-  `id_pais` int(11) NOT NULL,
-  `nombre_pais` varchar(20) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `pais`
---
-
-INSERT INTO `pais` (`id_pais`, `nombre_pais`) VALUES
-(1, 'El Salvador'),
-(2, 'Estados Unidos'),
-(3, 'Nicaragua'),
-(4, 'Honduras'),
-(5, 'Guatemala'),
-(6, 'Mexico'),
-(7, 'Panama'),
-(8, 'Costa Rica'),
-(9, 'Canada');
+(14, 'LG'),
+(15, 'Epson'),
+(16, 'Canon'),
+(17, 'Apc'),
+(18, 'Mega'),
+(19, 'Forza');
 
 -- --------------------------------------------------------
 
@@ -149,7 +159,7 @@ CREATE TABLE `producto` (
   `precio_venta` double NOT NULL,
   `precio_compra` double NOT NULL,
   `stock` int(11) NOT NULL,
-  `imagen` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `imagen` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `id_categoria` int(11) NOT NULL,
   `id_marca` int(11) NOT NULL,
   `id_proveedor` int(11) NOT NULL
@@ -160,12 +170,29 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `descripcion`, `especificacion`, `precio_venta`, `precio_compra`, `stock`, `imagen`, `id_categoria`, `id_marca`, `id_proveedor`) VALUES
-(65, 'Monitor negro 25\'', 'segunda generacion', 250, 150, 20, 'product01.png', 6, 11, 1),
-(66, 'Teclado negro', 'procesador de 5434', 50, 20, 20, 'product01.png', 7, 10, 1),
-(67, 'Mouse negro ', 'dsdshgvfdggvfvffgffdvfd', 15, 10, 20, 'product01.png', 8, 13, 1),
-(68, 'CPU blanco ', 'dhgfdjhfvjfv', 35.15, 20, 20, 'product01.png', 9, 11, 1),
-(69, 'UPS de doble linea de tomas', 'gfdgfgfgf', 56, 40, 20, 'product01.png', 10, 14, 1),
-(70, 'Impresora print GF76', 'dfgfgjdktghfhfghg', 32, 20, 20, 'product01.png', 11, 12, 1);
+(1, 'CPU HP ', ' CPU 1 HP 8300 Intel i7 3770 3.4GHz 8GB Ram 250 unidad de disco duro SSD 1TB Wifi', 1000, 600, 20, 'props/img/cpu1.png', 9, 12, 2),
+(2, 'CPU 2 INTEL', ' CPU 2 INTEL I7 DE OCTV GENERACION 24 GB RAM', 1200, 660, 20, 'props/img/cpu2.png', 9, 14, 3),
+(3, 'CPU 3 Ryzen', 'CPU 3 Ryzen 3 3200G Ryzen 5 3400G y resto de procesadores Ryzen 3000', 1300, 700, 20, 'props/img/cpu3.png', 9, 13, 4),
+(4, 'CPU 5 Intel', 'CPU 5 Intel Pentium Gold G5400  8 GB S Intel UHD Graphics 610  SSD 240 GB', 1500, 700, 20, 'props/img/cpu4.png', 9, 13, 5),
+(5, 'Impresora CanoN color Negro Sencilla', 'IMPRESORA CANON Impresora multifunción 2134 110V 220V Bivolt', 100, 50, 20, 'props/img/imp1.png', 11, 16, 6),
+(6, 'Impresora Color Negro Marca Canon Multifuncion', 'IMPRESORA CANON Impresora  Ink Tank 115 Conector negro Imprimir  Hasta 19 ppm', 300, 150, 20, 'props/img/imp4.png', 11, 16, 2),
+(7, 'Impresora Epson Color Negro Multifunciones', 'IMPRESORA Epson Impresora multifunción  G1100 220V Imprime a color Tecnología inyección de tinta\r\nCuenta con entrada USB\r\n', 300, 150, 20, 'props/img/imp3.png', 11, 15, 3),
+(8, 'Impresora Epson Color Negro 3 en 1', 'IMPRESORA EPSON Impresora Multifuncional  Smart Tank 519\r\nImpremir escanear copiar', 200, 100, 20, 'props/img/imp2.png', 11, 15, 4),
+(9, 'Mouse Marca Mega color Negro con luz LED azul', 'Mouse Gamer Mega NA-631 RF Inalámbrico 1600DPI Negro', 30, 10, 20, 'props/img/mouse4.png', 8, 18, 5),
+(10, 'Mouse LG LED color rojo', 'Mouse Gamer LG Óptico M5 RGB Alámbrico USB 16 000DPI Rojo AORUS M5 Tecnología de detección de movimientos', 30, 10, 18, 'props/img/mouse3.png', 8, 14, 6),
+(11, 'Mouse Mega Color Negro Con case de Calabera ', 'Mouse Gamer Mega Óptico Abyssus Essential Alámbrico USB 7200DPI Negro', 25, 12, 20, 'props/img/mouse1.png', 8, 18, 5),
+(12, 'Mouse Gamer LG con LED multi color Y un indio', 'Mouse Gamer LG Óptico NA-632  Mousepad Alámbrico USB 1200DPI Multicolor ', 30, 12, 20, 'props/img/mouse2.png', 8, 14, 6),
+(13, 'Teclado Gamer Mega color negro con teclas rojas ', 'Teclado para pc MEGA Naceb Scorpius Jaiter negro con luz RGB Teclado para pc QWERTY Naceb Scorpius Jaiter Red español españa negro con luz RGB', 60, 30, 20, 'props/img/teclado1.png', 7, 18, 2),
+(15, 'Teclado Marca Mega mecanino gamer color negro con LED multi color', 'Teclado para pc QWERTY XPG Infarex K20 Kailh Blue inglés US negro mate con luz roja naranja amarilla verde azul y púrpura', 50, 25, 20, 'props/img/teclado4.png', 7, 18, 4),
+(16, 'Teclado Marca LG mecanino gamer color negro con LED multi color', 'Teclado para pc QWERTY Logitech G413 Romer G inglés US carbón con luz roja', 50, 25, 20, 'props/img/teclado3.png', 7, 14, 5),
+(17, 'Forza color negro capacidad 500VA/250w', 'NT 511 Capacity  500VA 250W Topology Interactive Output VA  500 VA Outlets 6 x NEMA 5-15R Form Factor  Compact tower Waveform Simulated sine wave', 25, 15, 20, 'props/img/ups4.png', 10, 19, 2),
+(18, 'Forza color negro 1000w', 'Mustek PowerMust 1000 LCD Line Int IEC  Schuko El excelente control por microprocesador garantiza una alta confiabilidad Impulse y reduzca el AVR para estabilizar el voltaje', 100, 50, 20, 'props/img/ups3.png', 10, 19, 3),
+(19, 'APC color negro voltaje 230v y pantalla LED', 'APC Smart UPS SRT 1000VA RM 230V Network Card Entrada de voltaje 230V Variación de tensión de entrada para operaciones principales 50-150 40% Load 80  150V', 120, 40, 20, 'props/img/ups2.png', 10, 17, 4),
+(20, 'APC color negro con pantalla LED 3000VA', 'APC Smart UPS SRT 3000VA 120V Protección de energía online de alta densidad y doble conversión con autonomía escalable', 150, 60, 20, 'props/img/ups1.png', 10, 17, 5),
+(21, 'Monitor BenQ GW2280', 'Monitor BenQ GW2280 LED 21.5 negro 110V/220V (Bivolt)', 1456.95, 700.45, 20, 'props/img/pantalla1.png', 6, 11, 5),
+(22, 'Monitor Dell P2319H LED 23 negro', 'Monitor Dell P2319H LED 23 negro 110V/220V (Bivolt). Tiene una resolución de 1920px-1080px. Conexiones del monitor: DisplayPort, DVI-D, HDMI.', 1200.99, 854, 19, 'props/img/pantalla2.png', 6, 11, 2),
+(23, 'Monitor HP 23er de 23 pulgadas', 'El HP 23er es un monitor de 58,4 cm (23 pulgadas). Hasta 16,7 millones de colores con el uso de la tecnología FRC. 1 VGA\r\n1 HDMI', 1600, 954, 20, 'props/img/pantalla3.png', 6, 12, 2),
+(24, 'Monitor LED LG Serie E42', 'Mega Contraste, Imágenes mas claras y brillantes\r\nSUPER Ahorro de Energia, un 30 porciento mas que un monitor convencional\r\nOrganizador de cables', 999.99, 754, 20, 'props/img/pantalla4.png', 6, 14, 4);
 
 -- --------------------------------------------------------
 
@@ -185,7 +212,12 @@ CREATE TABLE `proveedor` (
 --
 
 INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `apellido`, `telefono`) VALUES
-(1, 'Carlos', 'Mejia', '2323-3456');
+(2, 'Peter', 'Griffin', '2277-9896'),
+(3, 'Bob', 'Burgers', '2555-4444'),
+(4, 'Homero', 'Simpson', '2233-5410'),
+(5, 'Pedro', 'Picapiedra', '2369-9856'),
+(6, 'Don', 'Cangrejo', '2456-9874'),
+(7, 'verde', 'rojo', '2222-2222');
 
 -- --------------------------------------------------------
 
@@ -261,7 +293,7 @@ CREATE TABLE `usuario` (
   `usuario` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `clave` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
   `id_sexo` int(11) NOT NULL,
-  `id_pais` int(11) DEFAULT NULL,
+  `id_departamento` int(11) DEFAULT NULL,
   `id_rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -269,17 +301,16 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_cliente`, `nombre`, `apellido`, `correo`, `telefono`, `direccion`, `usuario`, `clave`, `id_sexo`, `id_pais`, `id_rol`) VALUES
-(1, 'Michael', 'Jackson', 'mjackson_1@hotmail.com', '79456213', 'pasaje san cristobal #2546', 'mike', '202cb962ac59075b964b07152d234b70', 1, 1, 3),
-(2, 'Katherine', 'Arevalo', 'are324@gmail.com', '71234532', 'colonia El Pinar #24', 'katty', '202cb962ac59075b964b07152d234b70', 2, 4, 3),
-(3, 'Daniel', 'Siman', 'dany467@hotmail.com', '73452314', 'Las Vegas Nevada #2700', 'dann', '202cb962ac59075b964b07152d234b70', 1, 2, 3),
-(4, 'Marcos', 'Polo', 'marcop34@hotmail.com', '73452645', 'Pasaje Solis #34', 'polo', '202cb962ac59075b964b07152d234b70', 1, 8, 3),
-(5, 'Yamileth', 'Chavarria', 'yamy503@gmail.com', '78234567', 'Residecia Via Olimpica', 'yami', '202cb962ac59075b964b07152d234b70', 2, 4, 3),
-(6, 'Javier', 'Henriquez', 'javier@gmail.com', '71210006', 'por ahi', 'javier', '202cb962ac59075b964b07152d234b70', 1, 1, 3),
-(9, 'prueba', 'prueba', 'prueba@correo.com', '14141414', 'por ahi', 'prueba', '202cb962ac59075b964b07152d234b70', 2, 5, 3),
-(11, 'Santiago', 'Hernandez', 'santi@gmail.com', '45145124', 'Mejicanos', 'santi', '202cb962ac59075b964b07152d234b70', 1, 1, 3),
-(12, 'Erika', 'Galdamez', 'gabrielahello96@gmail.com', '2323-3456', 'Apopa', 'erika', '202cb962ac59075b964b07152d234b70', 2, 1, 1),
-(13, 'Luis', 'Gomez', 'luis@gmail.com', '2323-3445', 'San Salvador', 'luis', '202cb962ac59075b964b07152d234b70', 1, 2, 2);
+INSERT INTO `usuario` (`id_cliente`, `nombre`, `apellido`, `correo`, `telefono`, `direccion`, `usuario`, `clave`, `id_sexo`, `id_departamento`, `id_rol`) VALUES
+(1, 'Michael', 'Jackson', 'mjackson_1@hotmail.com', '7945-6213', 'pasaje san cristobal #2546', 'mike', '202cb962ac59075b964b07152d234b70', 1, 1, 3),
+(4, 'Marcos', 'Polo', 'marcop34@hotmail.com', '7345-2645', 'Pasaje Solis #34', 'polo', '202cb962ac59075b964b07152d234b70', 1, 8, 3),
+(5, 'Yamileth', 'Chavarria', 'yamy503@gmail.com', '7823-4456', 'Residecia Via Olimpica', 'yami', '202cb962ac59075b964b07152d234b70', 2, 4, 3),
+(6, 'Javier', 'Henriquez', 'javier@gmail.com', '7121-0006', 'por ahi', 'javier', '202cb962ac59075b964b07152d234b70', 1, 1, 3),
+(11, 'Santiago', 'Hernandez', 'santi@gmail.com', '4514-5124', 'Mejicanos', 'santi', '202cb962ac59075b964b07152d234b70', 1, 1, 3),
+(12, 'Erika', 'Galdamez', 'gabrielahello96@gmail.com', '2323-3456', 'Apopa', 'erika', '18fc943039d22650081597024ed6b7b4', 2, 1, 1),
+(13, 'Luis', 'Gomez', 'luis@gmail.com', '2323-3445', 'San Salvador', 'luis', '202cb962ac59075b964b07152d234b70', 1, 2, 2),
+(28, 'fdxddf', 'fddd', 'fgfg@asd.com', '4544-5454', 'fgfgfgfg', 'dsdsd', 'c47ad997e0b9a94cae27f37a50ee3500', 1, 4, 3),
+(30, 'dfdf', 'ghhghgh', 'ghgh@vcvcv.com', '4122-1222', 'jhjh', 'dffdfdf', '1c9ab842c5d781aff0c2df8c0cdfc844', 1, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -301,7 +332,7 @@ CREATE TABLE `venta` (
 --
 
 INSERT INTO `venta` (`id_venta`, `n_factura`, `fecha`, `id_estado`, `id_cliente`, `id_tipo_pago`) VALUES
-(2, 2015, '2019-12-12', 1, 5, 1);
+(7, 4303, '2019-12-19', 3, 5, 2);
 
 --
 -- Índices para tablas volcadas
@@ -312,6 +343,12 @@ INSERT INTO `venta` (`id_venta`, `n_factura`, `fecha`, `id_estado`, `id_cliente`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `departamento`
+--
+ALTER TABLE `departamento`
+  ADD PRIMARY KEY (`id_departamento`);
 
 --
 -- Indices de la tabla `detalle_venta`
@@ -331,12 +368,6 @@ ALTER TABLE `estado`
 --
 ALTER TABLE `marca`
   ADD PRIMARY KEY (`id_marca`);
-
---
--- Indices de la tabla `pais`
---
-ALTER TABLE `pais`
-  ADD PRIMARY KEY (`id_pais`);
 
 --
 -- Indices de la tabla `producto`
@@ -379,7 +410,7 @@ ALTER TABLE `usuario`
   ADD UNIQUE KEY `usuario` (`usuario`),
   ADD UNIQUE KEY `telefono` (`telefono`),
   ADD UNIQUE KEY `correo` (`correo`),
-  ADD KEY `cliente_pais` (`id_pais`) USING BTREE,
+  ADD KEY `cliente_pais` (`id_departamento`) USING BTREE,
   ADD KEY `cliente_rol` (`id_rol`) USING BTREE,
   ADD KEY `id_sexo` (`id_sexo`);
 
@@ -403,6 +434,12 @@ ALTER TABLE `categoria`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT de la tabla `departamento`
+--
+ALTER TABLE `departamento`
+  MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
@@ -412,25 +449,19 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `marca`
 --
 ALTER TABLE `marca`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT de la tabla `pais`
---
-ALTER TABLE `pais`
-  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -454,13 +485,13 @@ ALTER TABLE `tipo_pago`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
@@ -470,8 +501,8 @@ ALTER TABLE `venta`
 -- Filtros para la tabla `detalle_venta`
 --
 ALTER TABLE `detalle_venta`
-  ADD CONSTRAINT `detalle_venta_producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`),
-  ADD CONSTRAINT `detalle_venta_venta` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`id_venta`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`id_venta`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detalle_venta_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`);
 
 --
 -- Filtros para la tabla `producto`
@@ -485,17 +516,16 @@ ALTER TABLE `producto`
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `clientes_pais` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`),
-  ADD CONSTRAINT `clientes_rol` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`),
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_sexo`) REFERENCES `sexo` (`id_sexo`);
+  ADD CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`),
+  ADD CONSTRAINT `usuario_ibfk_3` FOREIGN KEY (`id_sexo`) REFERENCES `sexo` (`id_sexo`),
+  ADD CONSTRAINT `usuario_ibfk_4` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`);
 
 --
 -- Filtros para la tabla `venta`
 --
 ALTER TABLE `venta`
-  ADD CONSTRAINT `venta_clientes` FOREIGN KEY (`id_cliente`) REFERENCES `usuario` (`id_cliente`),
-  ADD CONSTRAINT `venta_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`),
-  ADD CONSTRAINT `venta_pago` FOREIGN KEY (`id_tipo_pago`) REFERENCES `tipo_pago` (`id_tipo_pago`);
+  ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`id_tipo_pago`) REFERENCES `tipo_pago` (`id_tipo_pago`),
+  ADD CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

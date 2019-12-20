@@ -50,7 +50,7 @@ class login_controller extends CI_Controller{
 
 
 //Metodo que recibe el mensaje si el correo no existe, se pudo enviar o NO se pudo enviar
-	/*public function correo($msj){
+	public function correo($msj){
 		
 		if ($msj == "errorCorreo") {
 			$data['msj'] = "errorCorreo";
@@ -59,8 +59,16 @@ class login_controller extends CI_Controller{
 		}else{
 			$data['msj'] = "errorEnviar";
 		}
-		$this->load->view('login_view',$data);
 
-	}*/
+		$dato = array(
+			'title'      => 'Tecno Store', 
+			'productos'  => $this->home_model->get_productos(),
+			'tipo_pago' => $this->home_model->mPago());
+
+		$this->load->view('template/header',$dato);
+		$this->load->view('home_view',$data);
+		$this->load->view('template/footer');
+
+	}
 
 }

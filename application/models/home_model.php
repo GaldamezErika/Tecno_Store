@@ -147,9 +147,9 @@ class home_model extends CI_Model {
 			$stockActual = $this->db->get('producto');
 			$k = $stockActual->row();
 
-				$this->db->where('id_producto', $v["id"]);
-				$this->db->set('stock',$k->stock - $v["qty"]);
-				$this->db->update('producto');
+			$this->db->where('id_producto', $v["id"]);
+			$this->db->set('stock',$k->stock - $v["qty"]);
+			$this->db->update('producto');
 			
 
 

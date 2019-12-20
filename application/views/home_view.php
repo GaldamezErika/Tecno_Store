@@ -17,7 +17,7 @@
 						</div>
 						<div class="shop-body">
 							<h3>Catálogo<br>Monitores</h3>
-							<a href="#" class="cta-btn">Compra ahora <i class="fa fa-arrow-circle-right"></i></a>
+							<a href="<?= base_url('home_controller/monitores') ?>" class="cta-btn">Compra ahora <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -31,7 +31,7 @@
 						</div>
 						<div class="shop-body">
 							<h3>Catálogo<br>Impresoras</h3>
-							<a href="#" class="cta-btn">Compra ahora <i class="fa fa-arrow-circle-right"></i></a>
+							<a href="<?= base_url('home_controller/impresoras') ?>" class="cta-btn">Compra ahora <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -45,7 +45,7 @@
 						</div>
 						<div class="shop-body">
 							<h3>Catálogo<br>CPUs</h3>
-							<a href="#" class="cta-btn">Compra ahora <i class="fa fa-arrow-circle-right"></i></a>
+							<a href="<?= base_url('home_controller/cpu') ?>" class="cta-btn">Compra ahora <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -81,7 +81,7 @@
 							<div class="col-md-3 col-xs-6" id="productos">
 								<div class="product">
 									<div class="product-img">
-										<img src="http://localhost/tecno_store/props/img/<?= $prod->imagen ?>" alt="">
+										<img src="<?= base_url('').$prod->imagen ?>" alt="">
 										<div class="product-label">
 											<span class="new">Nuevo</span>
 										</div>
@@ -93,9 +93,17 @@
 										<div class="product-btns">
 										</div>
 									</div>
-									<div class="add-to-cart">	
-										<a href="<?php echo base_url('home_controller/get_datos/'.$prod->id_producto) ?>"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Ver Detalles</button></a>
-									</div>
+									<?php 
+
+									if ($this->session->userdata('rol') == 1 || $this->session->userdata('rol') == 2) {
+
+										?>
+									<?php }else{ ?>
+
+										<div class="add-to-cart">	
+											<a href="<?php echo base_url('home_controller/get_datos/'.$prod->id_producto) ?>"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Ver Detalles</button></a>
+										</div>
+									<?php } ?>
 								</div>
 							</div>
 						<?php } ?>
@@ -152,4 +160,4 @@
 	<!-- /HOT DEAL SECTION -->
 
 
-	
+

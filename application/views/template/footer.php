@@ -53,19 +53,28 @@
 					</div>
 				</div>
 
-				<div class="col-md-3 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-title">Categorías</h3>
-						<ul class="footer-links">
-							<li><a href="<?= base_url('home_controller/monitores') ?>">Monitores</a></li>
-							<li><a href="<?= base_url('home_controller/teclados') ?>">Teclados</a></li>
-							<li><a href="<?= base_url('home_controller/mouses') ?>">Mouses</a></li>
-							<li><a href="<?= base_url('home_controller/cpu') ?>">CPUs</a></li>
-							<li><a href="<?= base_url('home_controller/impresoras') ?>">Impresoras</a></li>
-							<li><a href="<?= base_url('home_controller/ups') ?>">UPS</a></li>
-						</ul>
+				<?php 
+
+				if ($this->session->userdata('rol') == 1 || $this->session->userdata('rol') == 2) {
+
+					?>
+				<?php }else{ ?>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Categorías</h3>
+							<ul class="footer-links">
+								<li><a href="<?= base_url('home_controller/monitores') ?>">Monitores</a></li>
+								<li><a href="<?= base_url('home_controller/teclados') ?>">Teclados</a></li>
+								<li><a href="<?= base_url('home_controller/mouses') ?>">Mouses</a></li>
+								<li><a href="<?= base_url('home_controller/cpu') ?>">CPUs</a></li>
+								<li><a href="<?= base_url('home_controller/impresoras') ?>">Impresoras</a></li>
+								<li><a href="<?= base_url('home_controller/ups') ?>">UPS</a></li>
+							</ul>
+						</div>
 					</div>
-				</div>
+
+				<?php } ?>
 
 				<div class="clearfix visible-xs"></div>
 
@@ -82,16 +91,20 @@
 					</div>
 				</div>
 
-				<div class="col-md-3 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-title">Servicios</h3>
-						<ul class="footer-links">
-							<li><a href="#">Ver Carrito</a></li>
-							<li><a href="#">Pedidos</a></li>
-							<li><a href="#">Ayuda</a></li>
-						</ul>
+				<?php if ($this->session->userdata('rol') == 3) {
+
+					?>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Servicios</h3>
+							<ul class="footer-links">
+								<li><a href="<?= base_url('ped_cliente_controller/index') ?>">Mis Pedidos</a></li>
+								<li><a href="#">Ayuda</a></li>
+							</ul>
+						</div>
 					</div>
-				</div>
+				<?php } ?>
 			</div>
 			<!-- /row -->
 		</div>
@@ -115,7 +128,7 @@
 					</ul>
 					<span class="copyright">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Esta tienda esta hecha con  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Tecno Store</a>
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Esta tienda esta hecha con  <i class="fa fa-heart-o" aria-hidden="true"></i> by Tecno Store.
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</span>
 				</div>
@@ -127,6 +140,27 @@
 	<!-- /bottom footer -->
 </footer>
 <!-- /FOOTER -->
+
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h4>
+
+			</div>
+			<div class="modal-body">Seleccione <strong>"Cerrar sesión"</strong> a continuación si está listo para finalizar su sesión actual.</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+				<a class="btn btn-primary" href="<?php echo base_url('login_controller/cerrar')?>">Cerrar sesión</a>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- jQuery Plugins -->
 

@@ -63,27 +63,27 @@
 					timer: 5000
 				}).then((result) => {
 				if (result.value) {
-					window.location.href = "../login_controller/index";
+					window.location.href = "../home_controller/index";
 				}
 			})
-			</script>
-		<?php }
+		</script>
+	<?php }
 
-		if ($msj=="ErrorClave"){ ?>
-			<script type="text/javascript">
-				Swal.fire({
-					position: 'top-end',
-					icon: 'error',
-					title: 'La contraseña no se modifico!!',
-					text: "La contraseña actual que ha ingresado es incorrecta.",
-					showConfirmButton: false,
-					timer: 5000
+	if ($msj=="ErrorClave"){ ?>
+		<script type="text/javascript">
+			Swal.fire({
+				position: 'top-end',
+				icon: 'error',
+				title: 'La contraseña no se modifico!!',
+				text: "La contraseña actual que ha ingresado es incorrecta.",
+				showConfirmButton: false,
+				timer: 5000
 				}).then((result) => {
 				if (result.value) {
-					window.location.href = "../login_controller/index";
+					window.location.href = "../home_controller/index";
 				}
 			})
-			</script>	
+		</script>	
 		<?php } //Fin alert Error
 
 		?>

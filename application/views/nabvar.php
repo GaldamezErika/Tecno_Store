@@ -1,3 +1,5 @@
+<script src="<?php echo base_url('props/js/cambiarClave.js') ?>"></script>
+<script src="<?php echo base_url('props/js/login.js') ?>"></script>
 <!-- HEADER -->
 <header>
 
@@ -19,11 +21,11 @@
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-user-o"></i> email@email.com</a></li>
+						<li><a><i class="fa fa-user-o"></i> <?= $this->session->userdata('nombre'). " " .$this->session->userdata('apellido') ?></a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-user-o"></i> Cambiar clave</a></li>
-						<li><a href="<?php echo base_url('login_controller/cerrar')?>"><i class="fa fa-user-o"></i> Cerrar Sesión</a></li>
+						<li><a data-toggle="modal" data-target="#logModal"><i class="fa fa-user-o"></i> Cambiar clave</a></li>
+						<li><a data-toggle="modal" data-target="#logoutModal"><i class="fa fa-user-o"></i> Cerrar Sesión</a></li>
 					</ul>
 				</div>
 			</div>
@@ -101,12 +103,12 @@
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Productos</a></li>
-					<li><a href="#">Clientes</a></li>
-					<li><a href="#">Empledos</a></li>
-					<li><a href="#">Proveedores</a></li>
-					<li><a href="#">Pedidos</a></li>
+					<li class="active"><a href="<?= base_url('home_controller') ?>">Home</a></li>
+					<li><a href="<?= base_url('producto_controller/index') ?>">Productos</a></li>
+					<li><a href="<?= base_url('cliente_controller/index') ?>">Clientes</a></li>
+					<li><a href="<?= base_url('empleado_controller/index') ?>">Empledos</a></li>
+					<li><a href="<?= base_url('proveedor_C/index') ?>">Proveedores</a></li>
+					<li><a href="<?= base_url('pedidos_controller/index') ?>">Pedidos</a></li>
 				</ul>
 				<!-- /NAV -->
 			</div>
@@ -132,11 +134,11 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
-					<li><a href="#"><i class="fa fa-user-o"></i> email@email.com</a></li>
+					<li><a href="#"><i class="fa fa-user-o"></i> <?= $this->session->userdata('nombre'). " " .$this->session->userdata('apellido') ?></a></li>
 				</ul>
 				<ul class="header-links pull-right">
-					<li><a href="#"><i class="fa fa-user-o"></i> Cambiar clave</a></li>
-					<li><a href="<?php echo base_url('login_controller/cerrar')?>"><i class="fa fa-user-o"></i> Cerrar Sesión</a></li>
+					<li><a data-toggle="modal" data-target="#logModal"><i class="fa fa-user-o"></i> Cambiar clave</a></li>
+					<li><a data-toggle="modal" data-target="#logoutModal"><i class="fa fa-user-o"></i> Cerrar Sesión</a></li>
 				</ul>
 			</div>
 		</div>
@@ -214,10 +216,11 @@
 		<div id="responsive-nav">
 			<!-- NAV -->
 			<ul class="main-nav nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Productos</a></li>
-				<li><a href="#">Clientes</a></li>
-				<li><a href="#">Proveedores</a></li>
+				<li class="active"><a href="<?= base_url('home_controller') ?>">Home</a></li>
+				<li><a href="<?= base_url('producto_controller/index') ?>">Productos</a></li>
+				<li><a href="<?= base_url('cliente_controller/index') ?>">Clientes</a></li>
+				<li><a href="<?= base_url('proveedor_C/index') ?>">Proveedores</a></li>
+				<li><a href="<?= base_url('pedidos_controller/index') ?>">Pedidos</a></li>
 			</ul>
 			<!-- /NAV -->
 		</div>
@@ -244,11 +247,11 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
-					<li><a href="#"><i class="fa fa-user-o"></i> email@email.com</a></li>
+					<li><a href="#"><i class="fa fa-user-o"></i> <?= $this->session->userdata('nombre'). " " .$this->session->userdata('apellido') ?></a></li>
 				</ul>
 				<ul class="header-links pull-right">
-					<li><a href="#"><i class="fa fa-user-o"></i> Cambiar clave</a></li>
-					<li><a href="<?php echo base_url('login_controller/cerrar')?>"><i class="fa fa-user-o"></i> Cerrar Sesión</a></li>
+					<li><a data-toggle="modal" data-target="#logModal"><i class="fa fa-user-o"></i> Cambiar clave</a></li>
+					<li><a data-toggle="modal" data-target="#logoutModal"><i class="fa fa-user-o"></i> Cerrar Sesión</a></li>
 				</ul>
 			</div>
 		</div>
@@ -341,7 +344,7 @@
 				<li><a href="<?= base_url('home_controller/cpu') ?>">CPUs</a></li>
 				<li><a href="<?= base_url('home_controller/ups') ?>">UPS</a></li>
 				<li><a href="<?= base_url('home_controller/impresoras') ?>">Impresoras</a></li>
-				<li><a href="#">Mis Pedidos</a></li>
+				<li><a href="<?= base_url('ped_cliente_controller/index') ?>">Mis Pedidos</a></li>
 			</ul>
 			<!-- /NAV -->
 		</div>
@@ -363,11 +366,11 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
-					<li><a href="#"><i class="fa fa-user-o"></i> email@email.com</a></li>
+					<li><a href="#"><i class="fa fa-user-o"></i> <?= $this->session->userdata('nombre'). " " .$this->session->userdata('apellido') ?></a></li>
 				</ul>
 				<ul class="header-links pull-right">
-					<li><a href="#"><i class="fa fa-user-o"></i> Cambiar clave</a></li>
-					<li><a href="<?php echo base_url('login_controller/cerrar')?>"><i class="fa fa-user-o"></i> Cerrar Sesión</a></li>
+					<li><a data-toggle="modal" data-target="#logModal"><i class="fa fa-user-o"></i> Cambiar clave</a></li>
+					<li><a data-toggle="modal" data-target="#logoutModal"><i class="fa fa-user-o"></i> Cerrar Sesión</a></li>
 				</ul>
 			</div>
 		</div>
@@ -474,6 +477,82 @@
 <?php } ?>
 
 
+<!-- LogModal-->
+<div class="modal fade" id="logModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form action="<?= base_url('Welcome/cambiarcontra') ?>" method="POST" class="mx-auto" onsubmit=" return validarContras()">
+				<div class="modal-header">
+
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h5 class="modal-title" id="exampleModalLabel">Cambiar contraseña</h5>
+				</div>
+				<div class="modal-body">
+					<div class="col">
+						<div class="input-group">
+							<span class="input-group-text" >Contraseña Actual</span>
+							<input type="hidden" name="usuario" value="<?= $this->session->userdata('id') ?>">
+							<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="oldClave" id="passold" placeholder="Ingrese contraseña actual"><button id="show_password" class="btn btn-info" type="button" onclick="mostrarPassword1()"> <span class="fa fa-eye-slash icon"></span> </button>
+						</div>
+						<div class="col" id="letras">
+							<div id="info1">
+								<ul>
+									<li id="mayuscula1" class="invalid">Al menos <strong>una mayuscula</strong></li>
+									<li id="especial1" class="invalid">Al menos <strong>un caracter especial</strong></li>
+									<li id="numero1" class="invalid">Al menos <strong>un numero</strong></li>
+									<li id="length1" class="invalid">Por lo menos <strong>8 caracteres</strong></li>
+								</ul>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="col">
+						<div class="input-group">
+							<span class="input-group-text" >Nueva contraseña</span>
+							<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="newClave" id="pass1" placeholder="Ingrese nueva contraseña">
+							<button id="show_password" class="btn btn-info" type="button" onclick="mostrarPassword2()"> <span class="fa fa-eye-slash icon"></span> </button>
+						</div>
+						<div class="col" id="letras">
+							<div id="info2">
+								<ul>
+									<li id="mayuscula2" class="invalid">Al menos <strong>una mayuscula</strong></li>
+									<li id="especial2" class="invalid">Al menos <strong>un caracter especial</strong></li>
+									<li id="numero2" class="invalid">Al menos <strong>un numero</strong></li>
+									<li id="length2" class="invalid">Por lo menos <strong>8 caracteres</strong></li>
+								</ul>
+							</div>
+						</div>
+					</div><br>
+
+					<div class="col">
+						<div class="input-group">
+							<span class="input-group-text" >Confirmar contraseña</span>
+							<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="clave" id="pass2" placeholder="Confirmar contraseña">
+							<button id="show_password" class="btn btn-info" type="button" onclick="mostrarPassword3()"> <span class="fa fa-eye-slash icon"></span> </button>
+						</div>
+						<label id="msgv"></label>
+						<div class="col" id="letras">
+							<div id="info3">
+								<ul>
+									<li id="mayuscula3" class="invalid">Al menos <strong>una mayuscula</strong></li>
+									<li id="especial3" class="invalid">Al menos <strong>un caracter especial</strong></li>
+									<li id="numero3" class="invalid">Al menos <strong>un numero</strong></li>
+									<li id="length3" class="invalid">Por lo menos <strong>8 caracteres</strong></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+					<input type="submit" value="Cambiar" class="btn btn-primary">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
 
 
@@ -491,18 +570,29 @@
 			</div>
 			<div class="modal-body">
 				<!-- inicio formulario, se envian los datos del usuario y contraseña -->
-				<form action="<?php echo base_url('login_controller/iniciar') ?>" method="post" autocomplete="off">
+				<form action="<?php echo base_url('login_controller/iniciar') ?>" method="post" autocomplete="off" onsubmit=" return validarLogin()">
 
 
 					<div class="form-group mb-5 mt-3 mx-4">
 						<label for="exampleInputEmail1" style="font-family: Bahnschrift">Usuario</label>
-						<input type="text" name="usuario" id="usuario" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite su usuario">
+						<input type="text" name="usuario" id="usuario21" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite su usuario">
 
 					</div>
 					<div class="form-group mb-5 mx-4">
 						<label for="exampleInputPassword1" style="font-family: Bahnschrift">Contraseña</label>
 						<input type="password" name="clave" id="clave" class="form-control" id="exampleInputPassword1" placeholder="Digite la contraseña">
+						<button id="show_password" class="btn btn-info" type="button" onclick="mostrarPassword6()"> <span class="fa fa-eye-slash icon"></span> </button>
 					</div>
+					<div class="col" id="letras">
+							<div id="info11">
+								<ul>
+									<li id="mayuscula4" class="invalid">Al menos <strong>una mayuscula</strong></li>
+									<li id="especial4" class="invalid">Al menos <strong>un caracter especial</strong></li>
+									<li id="numero4" class="invalid">Al menos <strong>un numero</strong></li>
+									<li id="length4" class="invalid">Por lo menos <strong>8 caracteres</strong></li>
+								</ul>
+							</div>
+						</div>
 					<div class="text-center">
 						<button type="submit" name="" class="btn btn-primary" data-target="#exampleModalCenter">Ingresar</button></div>
 					</form>
@@ -512,11 +602,11 @@
 				</div>
 				<div class="modal-footer mx-4">
 					<div class="text-center">
-						<a href="#" class="text-muted">Registrarme</a>
+						<a href="<?php echo base_url('registrar_controller/index') ?>" class="text-muted">Registrarme</a>
 					</div>
 					<br>
 					<div class="text-center">
-						<a href="#" class="text-muted">¿Olvidó la contraseña?</a>
+						<a href="<?php echo base_url('recuperacion_controller/index') ?>" class="text-muted">¿Olvidó la contraseña?</a>
 					</div>
 				</div>
 			</div>
@@ -566,93 +656,121 @@
 													'qty'   => 0
 												);
 												$this->cart->update($borrar);
-												echo '<script>alert("El Producto Fue Eliminado!");</script>';
-												echo '<script>window.location.href = "home_controller" ;</script>';
+												echo '<script>  
+
+
+												Swal.fire({
+													title: "Retirado del carrito!",
+													text: "El producto se quitó del carrito",
+													icon: "Eliminado",
+													showCancelButton: false,
+													confirmButtonColor: "#3085d6",
+													confirmButtonText: "Aceptar"
+													}).then((result) => {
+														if (result.value) {
+															window.location.href = "home_controller";
+														}
+														})
+
+
+														</script>';
+													}
+												}
+											}  
+
+
+											if(!empty($this->cart->contents())){
+												$total = 0;
+												foreach ($this->cart->contents() AS $key => $value){?>
+
+													<tr>
+														<td><?= $value['name'];?></td>
+														<td><?= $value["qty"];?></td>
+														<td>$<?= $this->cart->format_number($value["price"]);?></td>
+														<td>$<?php echo number_format($value["qty"] * $value["price"],2);?></td>
+														<td><a class="btn btn-danger" href="?quitar=<?= $value["rowid"];?>">Quitar</a></td>
+													</tr>
+													<?php
+													$data = array('total' => $total =$this->cart->format_number($this->cart->total())); 
+												}
+												$this->session->set_userdata($data);
+												?>
+												<tr style="color: black">
+													<td  colspan="3" align="right"><strong>Sub Total</strong></td>
+													<td>$<strong style="color:green;"><?=$this->cart->format_number($this->cart->total());?></strong></td>
+													<td></td>
+												</tr>
+
+												<form action="<?= base_url('home_controller/comprar') ?>" method="POST" onsubmit="return validar()">
+													<?php 
+
+													if ($this->session->userdata('rol')) {
+
+														?>
+														<tr>
+															<td>
+																<select name="tipo_pago" id="tipo_pago" class="custom-select">
+																	<option value="">-- Seleccione un metodo de pago--</option>
+																	<?php foreach($tipo_pago as $tp){ ?>
+																		<option value="<?= $tp->id_tipo_pago ?>"><?= $tp->nombre_tipo_pago ?></option>
+																	<?php } ?>
+
+																</select>
+															</td>
+
+															<td> 
+																<input type="submit" name="carrito" value="Comprar" class="btn btn-primary">
+															</td>
+														</tr>
+													<?php }else{ ?>
+
+														
+
+													<?php } ?>
+
+												</form>
+
+												<?php
+
+											}else{
+
+												?>
+												<tr style="color: white">
+													<td colspan="4" style="color: red" align="center"><strong>No hay Producto Agregado!</strong></td>
+												</tr>
+												<?php
+
 											}
-										}
-									}  
 
+											?>
+										</table>
 
-									if(!empty($this->cart->contents())){
-										$total = 0;
-										foreach ($this->cart->contents() AS $key => $value){?>
-
-											<tr>
-												<td><?= $value['name'];?></td>
-												<td><?= $value["qty"];?></td>
-												<td>$<?= $this->cart->format_number($value["price"]);?></td>
-												<td>$<?php echo number_format($value["qty"] * $value["price"],2);?></td>
-												<td><a class="btn btn-danger" href="?quitar=<?= $value["rowid"];?>">Quitar</a></td>
-											</tr>
-											<?php
-											$data = array('total' => $total =$this->cart->format_number($this->cart->total())); 
-										}
-										$this->session->set_userdata($data);
-										?>
-										<tr style="color: black">
-											<td  colspan="3" align="right"><strong>Sub Total</strong></td>
-											<td>$<strong style="color:green;"><?=$this->cart->format_number($this->cart->total());?></strong></td>
-											<td></td>
-										</tr>
-
-										<form action="<?= base_url('home_controller/comprar') ?>" method="POST" onsubmit="return validar()">
-											<tr>
-												<td>
-													<select name="tipo_pago" id="tipo_pago" class="custom-select">
-														<option value="">-- Seleccione un metodo de pago--</option>
-														<?php foreach($tipo_pago as $tp){ ?>
-															<option value="<?= $tp->id_tipo_pago ?>"><?= $tp->nombre_tipo_pago ?></option>
-														<?php } ?>
-
-													</select>
-												</td>
-												<td> 
-													<input type="submit" name="carrito" value="Comprar" class="btn btn-primary">
-												</td>
-											</tr>
-										</form>
-
-										<?php
-
-									}else{
-
-										?>
-										<tr style="color: white">
-											<td colspan="4" style="color: red" align="center"><strong>No hay Producto Agregado!</strong></td>
-										</tr>
-										<?php
-
-									}
-
-									?>
-								</table>
-
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 
-	<script>
+			<script>
 
-		function validar(){
+				function validar(){
 
-			var tipo_pago = document.getElementById('tipo_pago').selectedIndex;
+					var tipo_pago = document.getElementById('tipo_pago').selectedIndex;
 
-			if (tipo_pago == 0) {
+					if (tipo_pago == 0) {
 
-				document.getElementById("tipo_pago").style.boxShadow = "0 0 15px red";
-				document.getElementById("tipo_pago").placeholder = "Seleccione tipo de pago";
+						document.getElementById("tipo_pago").style.boxShadow = "0 0 15px red";
+						document.getElementById("tipo_pago").placeholder = "Seleccione tipo de pago";
 
-				return false;
-			}else{
+						return false;
+					}else{
 
-				document.getElementById("tipo_pago").style.boxShadow = "0 0 15px green";
-			}
+						document.getElementById("tipo_pago").style.boxShadow = "0 0 15px green";
+					}
 
-			return true;
-		}
+					return true;
+				}
 
-	</script>
+			</script>

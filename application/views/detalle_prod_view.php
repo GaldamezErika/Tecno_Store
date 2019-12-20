@@ -18,8 +18,8 @@
 						<div class="col-md-7 col-md-pull-1">
 							<div id="product-main-img" class="container">
 								<div>
-									<a href="<?= base_url('props/img/product01.png') ?>" data-fancybox="">
-										<img src="http://localhost/tecno_store/props/img/<?= $pro->imagen ?>" id="imagen" alt="">
+									<a href="<?= base_url('').$pro->imagen ?>" data-fancybox="">
+										<img src="<?= base_url('').$pro->imagen ?>" id="imagen" alt="">
 									</a>
 								</div>		
 							</div>

@@ -26,7 +26,7 @@
 							<div class="col-md-3 col-xs-6" id="productos">
 								<div class="product">
 									<div class="product-img">
-										<img src="props/img/<?= $ups->imagen ?>" alt="">
+										<img src="<?= base_url('').$ups->imagen ?>" alt="">
 										<div class="product-label">
 											<span class="new">Nuevo</span>
 										</div>
